@@ -28,18 +28,18 @@ namespace DevTrackR.ShippingOrders.Infrastructure
                 return options;
             });
 
-            services.AddSingleton<IMongoClient>(sp => {
-                var configuration = sp.GetService<IConfiguration>();
-                var options = sp.GetService<MongoDbOptions>();
+            //services.AddSingleton<IMongoClient>(sp => {
+            //    var configuration = sp.GetService<IConfiguration>();
+            //    var options = sp.GetService<MongoDbOptions>();
                 
-                var client = new MongoClient(options.ConnectionString);
-                var db = client.GetDatabase(options.Database);
+            //    var client = new MongoClient(options.ConnectionString);
+            //    var db = client.GetDatabase(options.Database);
 
-                var dbSeed = new DbSeed(db);
-                dbSeed.Populate();
+            //    var dbSeed = new DbSeed(db);
+            //    dbSeed.Populate();
 
-                return client;
-            });
+            //    return client;
+            //});
 
             services.AddTransient(sp => {
                 BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
